@@ -34,18 +34,6 @@ const GlobalStyle = createGlobalStyle`
 
     --gr-blue-50: linear-gradient(230.92deg, #39AFFD -0.23%, #477FFF 100.3%);
 
-    --fz-xl: var(--f24);
-    --fz-base: var(--f16);
-    --fz-sm: var(--f14);
-    --fz-xsm: var(--f12);
-    --fz-2xsm: var(--f8);
-
-    --lh-xl: var(--f29);
-    --lh-base: var(--f19);
-    --lh-sm: var(--f18);
-    --lh-xsm: var(--f14);
-    --lh-2xsm: var(--10);
-
     ${() => {
 			let spacing = ''
 
@@ -57,6 +45,18 @@ const GlobalStyle = createGlobalStyle`
 
 			return spacing
 		}}
+
+    --fz-xl: var(--f24);
+    --fz-base: var(--f16);
+    --fz-sm: var(--f14);
+    --fz-xsm: var(--f12);
+    --fz-2xsm: var(--f8);
+
+    --lh-xl: var(--f29);
+    --lh-base: var(--f19);
+    --lh-sm: var(--f18);
+    --lh-xsm: var(--f14);
+    --lh-2xsm: var(--10);
   }
 
   * {

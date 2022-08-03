@@ -17,4 +17,8 @@ const Component: ComponentStory<typeof Text> = args => (
 
 export const Default = Component.bind({})
 
-Default.args = {}
+Default.args = {
+	small: false,
+	big: false,
+	smallest: false,
+}
