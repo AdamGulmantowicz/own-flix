@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
     --br-20: var(--f20);
     --br-30: var(--f30);
 
+    --ls-40: 0.02rem;
+
     --gr-gray-white-20: linear-gradient(61.05deg, #C2C2C2 -4.72%, #E2E2E2 98.65%);
     --gr-gray-white-40: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
     --gr-gray-white-60: linear-gradient(90.32deg, rgba(255, 255, 255, 0.5) 10.9%, rgba(255, 255, 255, 0) 95.35%);
