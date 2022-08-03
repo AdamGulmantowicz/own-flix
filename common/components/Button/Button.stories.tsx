@@ -9,10 +9,13 @@ export default {
 
 const Component: ComponentStory<typeof Button> = args => (
 	<Template>
-		<Button {...args} />
+		<Button {...args}>Ready Player One</Button>
 	</Template>
 )
 
 export const Default = Component.bind({})
 
-Default.args = {}
+Default.args = {
+	secondary: false,
+	big: false,
+}

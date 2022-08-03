@@ -13,8 +13,12 @@ const GlobalStyle = createGlobalStyle`
     --c-gray-30: #E2E2E2;
     --c-gray-45: #BCBCBC;
     --c-gray-50: #BBBBBB;
+    --c-gray-55: rgba(218, 218, 218, 0.3);
 
     --bf-blur-50: blur(4.81px);
+
+    --br-20: var(--f20);
+    --br-30: var(--f30);
 
     --gr-gray-white-20: linear-gradient(61.05deg, #C2C2C2 -4.72%, #E2E2E2 98.65%);
     --gr-gray-white-40: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
@@ -27,6 +31,18 @@ const GlobalStyle = createGlobalStyle`
     --gr-orange-60: linear-gradient(244.07deg, #FF8F71 47.24%, #EF2D1A 120.34%);
 
     --gr-blue-50: linear-gradient(230.92deg, #39AFFD -0.23%, #477FFF 100.3%);
+
+    --fz-xl: var(--f24);
+    --fz-base: var(--f16);
+    --fz-sm: var(--f14);
+    --fz-xsm: var(--f12);
+    --fz-2xsm: var(--f8);
+
+    --lh-xl: var(--f29);
+    --lh-base: var(--f19);
+    --lh-sm: var(--f18);
+    --lh-xsm: var(--f14);
+    --lh-2xsm: var(--10);
 
     ${() => {
 			let spacing = ''
@@ -47,9 +63,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  input, button,
+  input,
+  button,
   body {
-    font-family: var(---font-family);
+    font-family: 'Lato', sans-serif;
+    color: var(--c-white);
   }
 `
 

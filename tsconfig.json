@@ -23,6 +23,6 @@
 		"hooks": ["common/hooks/*"],
 		"context": ["common/context/*"],
 		"features": ["common/features/*"],
-		"utils": ["common/utils/*"],
+		"utils": ["common/utils/*"]
 	}
 }

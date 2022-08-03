@@ -12,9 +12,9 @@ export default {
   component: <%= name %>,
 } as ComponentMeta<typeof <%= name %>>;
 
-const Component: ComponentStory<typeof Button> = args => (
+const Component: ComponentStory<typeof <%= name %>> = args => (
 	<Template>
-		<<%= name %> {...args} />
+		<<%= name %> {...args}/>
 	</Template>
 )
 
