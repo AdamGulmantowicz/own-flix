@@ -16,5 +16,13 @@
 		"incremental": true
 	},
 	"include": ["next-env.d.ts", "pages/**/*.ts", "common/**/*.tsx"],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules"],
+	"paths": {
+		"storybook": [".storybook/*"],
+		"components": ["common/components/*"],
+		"hooks": ["common/hooks/*"],
+		"context": ["common/context/*"],
+		"features": ["common/features/*"],
+		"utils": ["common/utils/*"],
+	}
 }

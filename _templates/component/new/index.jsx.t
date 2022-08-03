@@ -2,7 +2,7 @@
 to: common/components/<%= name %>/index.tsx
 ---
 
-import React, { FC } from 'React'
+import React, { FC } from 'react'
 import type { I<%= name %>Props } from './types'
 import { Styled<%= name %> } from './<%= name %>.styles'
 
