@@ -21,4 +21,5 @@ Default.args = {
 	small: false,
 	big: false,
 	smallest: false,
+	secondary: false,
 }

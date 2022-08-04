@@ -1,15 +1,19 @@
 import styled from 'styled-components'
+import { orangeGradient } from '../../styles/effects'
 
 interface IStyledTextProps {
 	big?: boolean
 	small?: boolean
 	smallest?: boolean
+	secondary?: boolean
 }
 
 export const StyledText = styled.p<IStyledTextProps>`
 	font-size: var(--fz-sm);
 	line-height: var(--lh-sm);
 	letter-spacing: var(--ls-40);
+
+	${({ secondary }) => (secondary ? orangeGradient : '')}
 
 	${({ big }) =>
 		big
