@@ -8,6 +8,12 @@ import { ECardSizeType } from './types'
 export default {
 	title: 'Card',
 	component: Card,
+	argTypes: {
+		type: {
+			options: Object.values(ECardSizeType),
+			control: { type: 'select' },
+		},
+	},
 } as ComponentMeta<typeof Card>
 
 const Component: ComponentStory<typeof Card> = args => (

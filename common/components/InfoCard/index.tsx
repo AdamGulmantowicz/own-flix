@@ -7,16 +7,15 @@ import {
 } from './InfoCard.styles'
 import Card from '../Card'
 import Text from '../Text'
-import { StarIcon } from '../Icons'
+import { StarIconFill } from '../Icons'
 
 const InfoCard: FC<IInfoCardProps> = ({ title, rating, ...rest }) => {
-	console.log(rating)
 	return (
 		<Card {...rest}>
 			<StyledReviewButton>
 				<Text smallest>IMDB</Text>
 				<StyledContentButton>
-					<StarIcon width={16} height={16} />
+					<StarIconFill width={16} height={16} />
 					<Text small>{rating}</Text>
 				</StyledContentButton>
 			</StyledReviewButton>

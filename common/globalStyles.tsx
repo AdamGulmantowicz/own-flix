@@ -85,6 +85,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Lato', sans-serif;
     color: var(--c-white);
   }
+
+  ul, ol {
+    list-style: none;
+  }
 `
 
 export default GlobalStyle

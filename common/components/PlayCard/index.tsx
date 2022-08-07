@@ -9,14 +9,14 @@ import {
 import Card from '../Card'
 import Text from '../Text'
 import { EColors } from '../../styles/types'
-import { PlayIcon } from '../Icons'
+import { PlayIconFill } from '../Icons'
 
 const PlayCard: FC<IPlayCardProps> = ({ title, ...rest }) => {
 	return (
 		<Card {...rest}>
 			<StyledPlayCard>
 				<StyledButton>
-					<PlayIcon />
+					<PlayIconFill width={28} height={28} />
 					<StyledTextWrapper>
 						<Text color={EColors.GRAY_45} small>
 							Continue Watching
