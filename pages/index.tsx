@@ -2,7 +2,6 @@ import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import { PlayIcon } from '../common/components/Icons'
 
 const Home: NextPage = () => {
 	return (
@@ -14,7 +13,6 @@ const Home: NextPage = () => {
 			</Head>
 
 			<main>
-				<PlayIcon />
 				<h1>
 					Welcome to <a href="https://nextjs.org">Next.js!</a>
 				</h1>

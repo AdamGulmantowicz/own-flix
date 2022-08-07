@@ -13,16 +13,21 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"jsx": "preserve",
-		"incremental": true
+		"incremental": true,
+		// "paths": {
+		// 	"storybook/*": [".storybook/*"],
+		// 	"components/*": ["common/components/*"],
+		// 	"hooks/*": ["common/hooks/*"],
+		// 	"context/*": ["common/context/*"],
+		// 	"features/*": ["common/features/*"],
+		// 	"utils/*": ["common/utils/*"]
+		// }
 	},
-	"include": ["next-env.d.ts", "pages/**/*.ts", "common/**/*.tsx"],
-	"exclude": ["node_modules"],
-	"paths": {
-		"storybook": [".storybook/*"],
-		"components": ["common/components/*"],
-		"hooks": ["common/hooks/*"],
-		"context": ["common/context/*"],
-		"features": ["common/features/*"],
-		"utils": ["common/utils/*"]
-	}
+	"include": [
+		"next-env.d.ts",
+		"types.d.ts",
+		"pages/**/*.ts",
+		"common/**/*.tsx"
+	],
+	"exclude": ["node_modules"]
 }

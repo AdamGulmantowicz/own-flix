@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import { ECardSizeType, ICardProps } from './types'
 import { StyledCard, StyledCardWrapper } from './Card.styles'
-import Image from 'next/image'
 import Text from '../Text'
 
 const sizes = {

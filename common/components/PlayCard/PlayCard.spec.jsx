@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import PlayCard from './index'
+import PlayCard from '.'
 
 it('PlayCard: renders', () => {
 	const { container } = render(
