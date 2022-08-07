@@ -26,7 +26,7 @@ export const StyledInput = styled.input`
 	}
 
 	&[type='search'] {
-		padding: var(--f16) var(--f12) var(--f16) var(--f55);
+		padding: var(--f16) var(--f12) var(--f16) var(--f50);
 	}
 
 	:not(:placeholder-shown):invalid {
