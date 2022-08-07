@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
     --bf-blur-50: blur(4.81px);
 
+    --br-15: var(--f15);
     --br-20: var(--f20);
     --br-30: var(--f30);
 
@@ -69,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
     --lh-base: var(--f19);
     --lh-sm: var(--f18);
     --lh-xsm: var(--f14);
-    --lh-2xsm: var(--10);
+    --lh-2xsm: var(--f10);
   }
 
   * {
