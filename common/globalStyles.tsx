@@ -46,6 +46,19 @@ const GlobalStyle = createGlobalStyle`
 			return spacing
 		}}
 
+    ${() => {
+			let spacing = ''
+
+			for (let i = 50; i < 250; i += 5) {
+				spacing += `
+          --f${i}: ${Number((i / 16).toFixed(2))}rem;
+        `
+			}
+
+			return spacing
+		}}
+
+
     --fz-xl: var(--f24);
     --fz-base: var(--f16);
     --fz-sm: var(--f14);

@@ -23,6 +23,7 @@ export const StyledCardWrapper = styled.div<IStyledCardWrapperProps>`
 `
 
 export const StyledCard = styled.div<IStyledCardProps>`
+	position: relative;
 	padding: var(--f8) var(--f12);
 	${({ type }) =>
 		type === ECardSizeType.BIG

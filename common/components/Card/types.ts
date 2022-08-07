@@ -8,7 +8,7 @@ export enum ECardSizeType {
 }
 
 export interface ICardProps extends PropsWithChildren {
-	title: string
+	title?: string
 	image: string
 	year?: number | string
 	type?: ECardSizeType

@@ -17,6 +17,7 @@ export const StyledButton = styled.button<IStyledButtonProps>`
 	border-radius: var(--br-20);
 	cursor: pointer;
 	letter-spacing: 0.05rem;
+	text-align: unset;
 	transition: transform 0.2s;
 
 	${({ secondary }) =>
