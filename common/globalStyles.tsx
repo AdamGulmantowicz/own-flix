@@ -7,13 +7,20 @@ const GlobalStyle = createGlobalStyle`
     --font-family: 'Lato';
 
     --c-white: #fff;
-    --c-purple-30: #211F30;
-    --c-purple-50: #15141F;
+    --c-purple-30: #15141F;
+    --c-purple-50: #211F30;
 
     --c-gray-30: #E2E2E2;
     --c-gray-45: #BCBCBC;
     --c-gray-50: #BBBBBB;
     --c-gray-55: rgba(218, 218, 218, 0.3);
+
+    --c-orange-70: #EF2D1A;
+
+    --c-primary: var(--c-purple-30);
+    --c-primary-light: var(--c-purple-50);
+
+    --c-status-error: var(--c-orange-70);
 
     --bf-blur-50: blur(4.81px);
 
