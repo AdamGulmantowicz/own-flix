@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 import type { ITextProps } from './types'
 import { StyledText } from './Text.styles'
 

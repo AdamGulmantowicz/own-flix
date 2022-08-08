@@ -1,16 +1,7 @@
 import styled from 'styled-components'
 import { orangeGradient } from '../../styles/effects'
 import { MixinColor, MixinMarginBottom } from '../../styles/mixins'
-import { EColors } from '../../styles/types'
-
-interface IStyledTextProps {
-	big?: boolean
-	small?: boolean
-	smallest?: boolean
-	secondary?: boolean
-	color?: EColors
-	marginBottom?: number
-}
+import { IStyledTextProps } from './types'
 
 export const StyledText = styled.p<IStyledTextProps>`
 	font-size: var(--fz-sm);

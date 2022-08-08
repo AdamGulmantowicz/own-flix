@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
-  :root {
+  :root, ::after, ::before {
     --font-family: 'Lato';
 
     --c-white: #fff;
