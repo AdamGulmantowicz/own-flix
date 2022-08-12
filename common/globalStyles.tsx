@@ -10,11 +10,12 @@ const GlobalStyle = createGlobalStyle`
     --c-purple-30: #15141F;
     --c-purple-50: #211F30;
 
+    --c-gray-20:  #E0E0E0;
     --c-gray-30: #E2E2E2;
     --c-gray-45: #BCBCBC;
     --c-gray-50: #BBBBBB;
     --c-gray-55: rgba(218, 218, 218, 0.3);
-
+    --c-gray-60:  rgba(250, 240, 202, 0.05);
     --c-orange-70: #EF2D1A;
 
     --c-primary: var(--c-purple-30);
@@ -24,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
 
     --bf-blur-50: blur(4.81px);
 
+    --br-5: var(--f5);
     --br-15: var(--f15);
     --br-20: var(--f20);
     --br-30: var(--f30);
