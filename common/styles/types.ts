@@ -3,4 +3,5 @@ export enum EColors {
 	GRAY_45 = 'gray-45',
 	GRAY_50 = 'gray-50',
 	GRAY_55 = 'gray-55',
+	WHITE = 'white',
 }
