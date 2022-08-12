@@ -96,6 +96,12 @@ const GlobalStyle = createGlobalStyle`
   ul, ol {
     list-style: none;
   }
+
+  button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
 `
 
 export default GlobalStyle
