@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     --c-gray-30: #E2E2E2;
     --c-gray-45: #BCBCBC;
     --c-gray-50: #BBBBBB;
+    --c-gray-53:  #515151;
     --c-gray-55: rgba(218, 218, 218, 0.3);
     --c-gray-60:  rgba(250, 240, 202, 0.05);
     --c-orange-70: #EF2D1A;

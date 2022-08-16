@@ -21,7 +21,7 @@ export const StyledPlayButton = styled.button`
 	transition: transform 0.2s;
 
 	&:active {
-		transform: translate(-50%, calc(50% + 2px));
+		transform: translate(-50%, calc(-50% + var(--f10)));
 	}
 
 	svg {
