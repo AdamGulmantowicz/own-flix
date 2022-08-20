@@ -1,6 +1,12 @@
 {
-	"extends": "next/core-web-vitals",
+	"extends": "eslint-config-airbnb",
 	"overrides": [
+		{
+			"files": ["*.@(ts|tsx|js|jsx|mjs|cjs)"],
+			"rules": {
+				"linebreak-style": "off"
+			}
+		},
 		{
 			// or whatever matches stories specified in .storybook/main.js
 			"files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
