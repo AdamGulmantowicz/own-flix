@@ -1,5 +1,5 @@
 ---
-to: common/components/<%= name %>/index.tsx
+to: src/common/components/<%= name %>/index.tsx
 ---
 
 import React, { FC } from 'react'

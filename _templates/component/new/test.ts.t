@@ -1,5 +1,5 @@
 ---
-to: common/components/<%= name %>/<%= name %>.spec.jsx
+to: src/common/components/<%= name %>/<%= name %>.spec.jsx
 ---
 import { render } from '@testing-library/react'
 import <%= name %> from '.'

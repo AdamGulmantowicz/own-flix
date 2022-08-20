@@ -1,5 +1,5 @@
 ---
-to: "<%= locals.separateTypes ? `common/components/${name}/types.ts` : null %>"
+to: "<%= locals.separateTypes ? `src/src/common/components/${name}/types.ts` : null %>"
 ---
 import { PropsWithChildren } from 'react'
 

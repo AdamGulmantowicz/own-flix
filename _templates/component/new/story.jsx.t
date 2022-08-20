@@ -1,5 +1,5 @@
 ---
-to: common/components/<%= name %>/<%= name %>.stories.tsx
+to: src/common/components/<%= name %>/<%= name %>.stories.tsx
 ---
 import React from 'react';
 import Template from '../../../.storybook/Template'
