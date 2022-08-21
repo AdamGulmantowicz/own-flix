@@ -1,6 +1,5 @@
 import app from "./app";
 import mongoose from "mongoose";
-import path from "path";
 
 process.on("uncaughtException", (err) => {
   console.log(err.name, err.message);
@@ -28,10 +27,6 @@ mongoose.connect(DB, () => {
 const port = process.env.API_PORT || 4000;
 const server = app.listen(port, () => {
   console.log(`App running on port ${port}...`);
-});
-
-app.use("*", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
 });
 
 process.on("unhandledRejection", (err: Error) => {

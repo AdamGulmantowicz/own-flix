@@ -6,10 +6,35 @@ import ExpressMongoSanitize from "express-mongo-sanitize";
 import helmet from "helmet";
 import compression from "compression";
 import cookieParser from "cookie-parser";
+import passport from "passport";
+import { ExtractJwt, Strategy as JwtStrategy } from "passport-jwt";
+import User from "./models/User";
+import AuthRouter from "./routes/AuthRouter";
 
 const app = express();
 
 // Some basic configurations(setting static files path, rate limiter, cookie parser)
+
+passport.use(
+  new JwtStrategy(
+    {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: process.env.JWT_SECRET,
+    },
+    async function (jwt_payload, done) {
+      if (!jwt_payload || !jwt_payload.sub)
+        return done(Error("There is no such user"), false);
+
+      const user = await User.findOne({ _id: jwt_payload.sub }).exec();
+      if (user) {
+        return done(null, user);
+      } else {
+        return done(null, false);
+        // or you could create a new account
+      }
+    }
+  )
+);
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -33,5 +58,11 @@ app.use(cookieParser());
 app.use(ExpressMongoSanitize());
 
 app.use(compression());
+
+app.use("/", AuthRouter);
+
+app.use("*", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
 export default app;
