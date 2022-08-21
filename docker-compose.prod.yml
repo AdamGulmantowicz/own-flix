@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  server:
+    build:
+      target: production
+    command: npm start
+  client:
+    build: ./client
+    container_name: client
+    volumes:
+      - ./backend/src:/home/client/app/

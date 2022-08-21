@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  server:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: base
+    container_name: server
+    volumes:
+      - ./backend/src:/home/node/app/src
+      - ./backend/nodemon.json:/home/node/app/nodemon.json
+    expose:
+      - ${API_PORT}
+    ports:
+      - ${API_PORT}:${API_PORT}
+    command: npm run dev
+    env_file:
+      - .env
+    environment:
+      MONGO_DB_URL: mongodb://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@mongo:27017
+  mongo:
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:${MONGO_DB_PORT}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASSWORD}
+    volumes:
+      - ownflix:/data/db
+volumes:
+  ownflix:
