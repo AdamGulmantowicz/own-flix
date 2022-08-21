@@ -9,4 +9,4 @@ RUN npm i
 COPY . .
 RUN npm run build
 RUN mkdir -p /home/node/app/public
-RUN cp -R ./dist/** ../../node/app/public/
+RUN cp -R ./dist/** ../../node/app/src/public/
