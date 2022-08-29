@@ -7,34 +7,18 @@ import helmet from "helmet";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import passport from "passport";
+import dotenv from "dotenv";
 import { ExtractJwt, Strategy as JwtStrategy } from "passport-jwt";
 import User from "./models/User";
 import AuthRouter from "./routes/AuthRouter";
+import MovieRouter from "./routes/MovieRouter";
+import { Strategy as LocalStrategy } from "passport-local";
 
 const app = express();
 
 // Some basic configurations(setting static files path, rate limiter, cookie parser)
 
-passport.use(
-  new JwtStrategy(
-    {
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: process.env.JWT_SECRET,
-    },
-    async function (jwt_payload, done) {
-      if (!jwt_payload || !jwt_payload.sub)
-        return done(Error("There is no such user"), false);
-
-      const user = await User.findOne({ _id: jwt_payload.sub }).exec();
-      if (user) {
-        return done(null, user);
-      } else {
-        return done(null, false);
-        // or you could create a new account
-      }
-    }
-  )
-);
+dotenv.config();
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -59,7 +43,51 @@ app.use(ExpressMongoSanitize());
 
 app.use(compression());
 
+// TODO move it to async/await and add global error handlers and messages
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+    },
+    // @ts-ignore
+    function (email: string, password: string, cb) {
+      //this one is typically a DB call. Assume that the returned user object is pre-formatted and ready for storing in JWT
+      return User.findOne({ email })
+        .exec()
+        .then((user) => {
+          if (!user) {
+            return cb(null, false, { message: "Incorrect email or password." });
+          }
+          return cb(null, user, { message: "Logged In Successfully" });
+        })
+        .catch((err) => cb(err));
+    }
+  )
+);
+
+passport.use(
+  new JwtStrategy(
+    {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: process.env.JWT_SECRET,
+    },
+    function (jwtPayload, cb) {
+      //find the user in db if needed. This functionality may be omitted if you store everything you'll need in JWT payload.
+      return User.findById(jwtPayload.id)
+        .exec()
+        .then((user) => {
+          return cb(null, user);
+        })
+        .catch((err) => {
+          return cb(err);
+        });
+    }
+  )
+);
+
 app.use("/", AuthRouter);
+app.use("/movie", MovieRouter);
 
 app.use("*", (req, res) => {
   res.sendFile(__dirname + "/index.html");

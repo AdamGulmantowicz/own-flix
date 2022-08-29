@@ -1,10 +1,10 @@
-import { Model } from "mongoose";
+import { Model as ModelType } from "mongoose";
 import { catchAsync } from "./../utils/catchAsync";
 import { AppError } from "./../utils/AppError";
 import { APIFeatures } from "./../utils/APIFeatures";
 import { StatusCodes } from "http-status-codes";
 
-export const deleteOne = <T>(Model: Model<T>) =>
+export const deleteOne = <T>(Model: ModelType<T>) =>
   catchAsync(async (req, res, next) => {
     const doc = await Model.findByIdAndDelete(req.query.id);
 
@@ -20,7 +20,7 @@ export const deleteOne = <T>(Model: Model<T>) =>
     });
   });
 
-export const updateOne = <T>(Model: Model<T>) =>
+export const updateOne = <T>(Model: ModelType<T>) =>
   catchAsync(async (req, res, next) => {
     const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -32,7 +32,7 @@ export const updateOne = <T>(Model: Model<T>) =>
     });
   });
 
-export const createOne = <T>(Model: Model<T>) =>
+export const createOne = <T>(Model: ModelType<T>) =>
   catchAsync(async (req, res, next) => {
     const doc = await Model.create(req.body);
     res.status(StatusCodes.CREATED).json({
@@ -43,7 +43,10 @@ export const createOne = <T>(Model: Model<T>) =>
     });
   });
 
-export const getOne = <T>(Model: Model<T>, popOptions?: string | string[]) =>
+export const getOne = <T>(
+  Model: ModelType<T>,
+  popOptions?: string | string[]
+) =>
   catchAsync(async (req, res, next) => {
     let query = Model.findById(req.params.id);
     // TODO fix this typing issue
@@ -63,7 +66,7 @@ export const getOne = <T>(Model: Model<T>, popOptions?: string | string[]) =>
     });
   });
 
-export const getAll = <T>(Model: Model<T>) =>
+export const getAll = <T>(Model: ModelType<T>) =>
   catchAsync(async (req, res, next) => {
     // To allow nested GET reviews
     let filter = {};

@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 import type { RequestHandler, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { omit } from "lodash";
+import { catchAsync } from "../utils/catchAsync";
+import passport from "passport";
 
 const signToken = (id: string) => {
   if (!process.env.JWT_SECRET) throw Error("Please specify JWT Secret!");
@@ -28,7 +30,7 @@ const createAndSendToken = (
   });
 };
 
-export const signUp: RequestHandler = async (req, res, next) => {
+export const signUp: RequestHandler = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
     email: req.body.email,
@@ -37,9 +39,9 @@ export const signUp: RequestHandler = async (req, res, next) => {
   });
 
   createAndSendToken(newUser, StatusCodes.CREATED, res);
-};
+});
 
-export const login: RequestHandler = async (req, res, next) => {
+export const login: RequestHandler = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
   // 1) Check if email and password exist
   if (!email || !password) {
@@ -58,5 +60,11 @@ export const login: RequestHandler = async (req, res, next) => {
     return next(new Error("Incorrect email or password"));
   }
 
-  createAndSendToken(userWithoutPassword, StatusCodes.OK, res);
-};
+  createAndSendToken(userWithoutPassword, StatusCodes.ACCEPTED, res);
+});
+
+export const getMe: RequestHandler = catchAsync(async (req, res) => {
+  const user = req.user;
+
+  res.status(StatusCodes.OK).json({ data: user });
+});

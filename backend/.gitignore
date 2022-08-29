@@ -1,3 +1,4 @@
 node_modules
 build
 src/public/**
+.env_sample
