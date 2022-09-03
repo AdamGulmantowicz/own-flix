@@ -1,6 +1,6 @@
 import path from "path";
 import morgan from "morgan";
-import express, { application } from "express";
+import express from "express";
 import RateLimit from "express-rate-limit";
 import ExpressMongoSanitize from "express-mongo-sanitize";
 import helmet from "helmet";

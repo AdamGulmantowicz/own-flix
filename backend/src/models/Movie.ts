@@ -7,12 +7,29 @@ interface IGenre {
   name: string;
 }
 
+interface ISubtitle {
+  url: string;
+  language: string;
+}
+
+export interface IMovieImage {
+  aspect_ratio: number;
+  file_path: string;
+  height: number;
+  width: number;
+}
+
+export interface IMovieImages {
+  backdrops: IMovieImage[];
+  posters: IMovieImage[];
+}
+
 export interface IMovie extends Document {
   adult: boolean;
   backdrop_path: string;
   budget: number;
   genres: IGenre[];
-  _id: string;
+  _id: number;
   original_language: string;
   original_title: string;
   overview: string;
@@ -26,6 +43,9 @@ export interface IMovie extends Document {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  subtitles?: ISubtitle[];
+  videoUrl?: string;
+  images: IMovieImages;
 }
 
 const MovieSchema = new mongoose.Schema<IMovie>({
@@ -35,14 +55,9 @@ const MovieSchema = new mongoose.Schema<IMovie>({
   },
   backdrop_path: String,
   budget: Number,
-  genres: [
-    {
-      _id: { type: Schema.Types.ObjectId, ref: "Genre" },
-      name: { type: String },
-    },
-  ],
+  genres: [{ _id: { type: Number, ref: "Genre" }, name: String }],
   _id: {
-    type: String,
+    type: Number,
     required: [true, "Movie Id must be specified."],
   },
   original_language: String,
@@ -58,6 +73,29 @@ const MovieSchema = new mongoose.Schema<IMovie>({
   video: Boolean,
   vote_average: Number,
   vote_count: Number,
+  videoUrl: String,
+  subtitles: {
+    type: Array,
+    default: [],
+  },
+  images: {
+    posters: [
+      {
+        aspect_ratio: Number,
+        file_path: String,
+        height: Number,
+        width: Number,
+      },
+    ],
+    backdrops: [
+      {
+        aspect_ratio: Number,
+        file_path: String,
+        height: Number,
+        width: Number,
+      },
+    ],
+  },
 });
 
 const Movie = mongoose.model<IMovie>("Movie", MovieSchema);
